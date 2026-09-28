@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">Subwall</title>
+  <!-- The app icon's design: a sky wall with a 3 x 3 grid of tiles, one slot left empty. -->
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DCE7F1" />
+      <stop offset="1" stop-color="#A9C0D4" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="27" fill="url(#wall)" />
+  <g>
+    <rect x="21" y="21" width="22" height="22" rx="5" fill="#E4572E" />
+    <rect x="49" y="21" width="22" height="22" rx="5" fill="#1F8A83" />
+    <rect x="77" y="21" width="22" height="22" rx="5" fill="#3B4CCA" />
+    <rect x="21" y="49" width="22" height="22" rx="5" fill="#F2A93B" />
+    <rect x="49" y="49" width="22" height="22" rx="5" fill="#3FA34D" />
+    <rect x="77" y="49" width="22" height="22" rx="5" fill="#8FA8BE" />
+    <rect x="21" y="77" width="22" height="22" rx="5" fill="#8E3B8E" />
+    <rect x="49" y="77" width="22" height="22" rx="5" fill="#2E86DE" />
+    <rect x="77" y="77" width="22" height="22" rx="5" fill="#C0392B" />
+  </g>
+</svg>
