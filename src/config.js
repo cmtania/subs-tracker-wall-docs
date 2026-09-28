@@ -159,10 +159,10 @@ export const STEPS = [
   },
 ];
 
-// Subwall Pro prices per App Store storefront (ISO region code -> ISO currency and amount).
+// Exact Subwall Pro prices per App Store storefront (ISO region code -> ISO currency and amount).
 // Copy these from App Store Connect: each subscription / in-app purchase -> Price Schedule lists
-// every storefront. Visitors whose region isn't listed see words instead of a number, so an
-// unconfirmed guess is never shown.
+// every storefront. A listed region shows its exact price. Every other visitor sees an
+// approximate price in their currency, converted from the Philippine price below (see APPROX).
 export const PRICES = {
   yearly: {
     PH: { currency: 'PHP', amount: 799 },
@@ -173,6 +173,53 @@ export const PRICES = {
   lifetime: {
     PH: { currency: 'PHP', amount: 1899 },
   },
+};
+
+/**
+ * Approximate prices for regions without an exact entry in PRICES: the Philippine (base) price
+ * converted with rough exchange rates, rounded, and always labelled "approx.". Apple sets the
+ * real local price (with taxes and its own price points), and the App Store shows it before
+ * anyone buys, so these are only a guide. Rates are units of each currency per 1 US dollar;
+ * update them now and then, or replace a region with its exact App Store price in PRICES.
+ */
+export const APPROX = {
+  base: 'PH',
+  phpPerUsd: 57,
+  usdRates: {
+    USD: 1, EUR: 0.92, GBP: 0.78, JPY: 150, INR: 84, AUD: 1.52, CAD: 1.37, SGD: 1.34,
+    MYR: 4.45, IDR: 16000, THB: 34, VND: 25500, KRW: 1380, BRL: 5.6, MXN: 18.5, AED: 3.67,
+    SAR: 3.75, CHF: 0.88, SEK: 10.5, NOK: 10.8, DKK: 6.9, PLN: 4, NZD: 1.68, HKD: 7.8,
+    TWD: 32, ZAR: 18,
+  },
+  // Storefront currency by region (the App Store uses USD in many other countries).
+  currencyByRegion: {
+    US: 'USD', GB: 'GBP', JP: 'JPY', IN: 'INR', AU: 'AUD', CA: 'CAD', SG: 'SGD', MY: 'MYR',
+    ID: 'IDR', TH: 'THB', VN: 'VND', KR: 'KRW', BR: 'BRL', MX: 'MXN', AE: 'AED', SA: 'SAR',
+    CH: 'CHF', SE: 'SEK', NO: 'NOK', DK: 'DKK', PL: 'PLN', NZ: 'NZD', HK: 'HKD', TW: 'TWD',
+    ZA: 'ZAR', DE: 'EUR', FR: 'EUR', ES: 'EUR', IT: 'EUR', NL: 'EUR', BE: 'EUR', AT: 'EUR',
+    IE: 'EUR', PT: 'EUR', FI: 'EUR', GR: 'EUR', SK: 'EUR', SI: 'EUR', LT: 'EUR', LV: 'EUR',
+    EE: 'EUR', LU: 'EUR', CY: 'EUR', MT: 'EUR', HR: 'EUR',
+  },
+  fallbackCurrency: 'USD',
+};
+
+// Where a visitor is, from their time zone: a better guess of their App Store country than the
+// browser language (a phone in Manila set to English (US) is still a Philippine App Store).
+export const REGION_BY_TIMEZONE = {
+  'Asia/Manila': 'PH', 'America/New_York': 'US', 'America/Chicago': 'US', 'America/Denver': 'US',
+  'America/Phoenix': 'US', 'America/Los_Angeles': 'US', 'America/Anchorage': 'US',
+  'Pacific/Honolulu': 'US', 'America/Detroit': 'US', 'Europe/London': 'GB', 'Europe/Dublin': 'IE',
+  'Europe/Berlin': 'DE', 'Europe/Paris': 'FR', 'Europe/Madrid': 'ES', 'Europe/Rome': 'IT',
+  'Europe/Amsterdam': 'NL', 'Europe/Brussels': 'BE', 'Europe/Vienna': 'AT', 'Europe/Lisbon': 'PT',
+  'Europe/Helsinki': 'FI', 'Europe/Athens': 'GR', 'Europe/Zurich': 'CH', 'Europe/Stockholm': 'SE',
+  'Europe/Oslo': 'NO', 'Europe/Copenhagen': 'DK', 'Europe/Warsaw': 'PL', 'Asia/Tokyo': 'JP',
+  'Asia/Kolkata': 'IN', 'Asia/Calcutta': 'IN', 'Australia/Sydney': 'AU', 'Australia/Melbourne': 'AU',
+  'Australia/Brisbane': 'AU', 'Australia/Perth': 'AU', 'Australia/Adelaide': 'AU',
+  'America/Toronto': 'CA', 'America/Vancouver': 'CA', 'America/Edmonton': 'CA',
+  'Asia/Singapore': 'SG', 'Asia/Kuala_Lumpur': 'MY', 'Asia/Jakarta': 'ID', 'Asia/Bangkok': 'TH',
+  'Asia/Ho_Chi_Minh': 'VN', 'Asia/Saigon': 'VN', 'Asia/Seoul': 'KR', 'America/Sao_Paulo': 'BR',
+  'America/Mexico_City': 'MX', 'Asia/Dubai': 'AE', 'Asia/Riyadh': 'SA', 'Pacific/Auckland': 'NZ',
+  'Asia/Hong_Kong': 'HK', 'Asia/Taipei': 'TW', 'Africa/Johannesburg': 'ZA',
 };
 
 export const PLANS = [

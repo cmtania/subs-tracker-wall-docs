@@ -190,10 +190,11 @@ export function Pricing() {
                   {local ? (
                     <b>{local}</b>
                   ) : (
-                    // No confirmed price for this visitor's country: don't guess a number.
+                    // No price at all (e.g. an unknown currency): words, never a guessed number.
                     <b className="plan-price-text">{plan.fallback[0]}</b>
                   )}
                   <span>{local ? plan.note : plan.fallback[1]}</span>
+                  {local && plan.priceKey && prices.approx && <em className="approx">approx.</em>}
                 </div>
                 {plan.featured && (
                   <span className="plan-save">
@@ -211,6 +212,12 @@ export function Pricing() {
             );
           })}
         </div>
+        {prices.approx && (
+          <p className="price-note">
+            Prices marked approx. are converted to your currency as a guide. The App Store sets the exact price for
+            your country, including any taxes, and shows it before you buy.
+          </p>
+        )}
       </div>
     </section>
   );

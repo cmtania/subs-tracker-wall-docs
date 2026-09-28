@@ -364,6 +364,9 @@ p { margin: 0; }
 .plan-price span { color: var(--muted); font-weight: 600; }
 .plan-price .plan-price-text { font-size: 30px; }
 .plan > p { color: var(--muted); }
+.approx { flex-basis: 100%; margin-top: -4px; font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.plan-featured .approx { color: rgba(255, 255, 255, 0.6); }
+.price-note { max-width: 640px; margin: 28px auto 0; text-align: center; color: var(--muted); font-size: 14px; }
 .plan-featured { background: var(--ink); color: #fff; box-shadow: var(--shadow-big); }
 .plan-featured .plan-price span, .plan-featured > p { color: rgba(255, 255, 255, 0.7); }
 .plan-featured .checks svg { background: rgba(242, 169, 59, 0.2); color: var(--accent); }
