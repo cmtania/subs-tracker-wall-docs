@@ -43,7 +43,7 @@ function format(amount, currency) {
 
 /**
  * Subwall Pro prices for the visitor, formatted for their locale:
- * { yearly: "₱799", monthly: "₱199", lifetime: "₱1,899", approx: false, yearlySave: 66 }.
+ * { yearly: "₱799", monthly: "₱199", lifetime: "₱1,490", approx: false, yearlySave: 66 }.
  * Regions listed in PRICES get the exact App Store price. Everyone else gets the Philippine
  * price converted to their currency, rounded, with `approx: true` so the page labels it.
  */

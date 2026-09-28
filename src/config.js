@@ -171,7 +171,7 @@ export const PRICES = {
     PH: { currency: 'PHP', amount: 199 },
   },
   lifetime: {
-    PH: { currency: 'PHP', amount: 1899 },
+    PH: { currency: 'PHP', amount: 1490 },
   },
 };
 
