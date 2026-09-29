@@ -101,7 +101,7 @@ export const FEATURES = [
     id: 'calendar',
     eyebrow: 'Stay ahead',
     title: 'Slide along the wall to your calendar',
-    body: 'Swipe to a paper calendar with every payment day circled in its service’s color, and a sticky note of what’s due this week. The Calendar tab lists every payment, day by day.',
+    body: 'Swipe to a paper calendar with every payment day circled in its service’s color. Tap This month or Due this week above your tiles to see every payment behind the total, and the Calendar tab lists them day by day.',
     points: ['This month and this week’s totals on top', 'Tap a day to see exactly what renews', 'History shows your spending month by month'],
     screen: 'calendar',
   },
