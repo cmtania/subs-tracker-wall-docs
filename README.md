@@ -59,8 +59,8 @@ Use these URLs in App Store Connect (the app's Settings → About Subwall links 
 - **Support contact:** Christian Tania, tania.dev.ph@gmail.com. It's set in `SUPPORT_NAME` and `SUPPORT_EMAIL` in `src/config.js` (the footer), and written into `public/support.html`, `privacy.html` and `terms.html`.
 - **Pro prices per country** (`src/config.js`):
   - **The visitor's country** comes from their time zone first (`Asia/Manila` → PH, see `REGION_BY_TIMEZONE`), then from their browser language (`en-US` → US). A phone in Manila set to English (US) still sees Philippine prices.
-  - **Exact prices:** `PRICES` has three tables, `yearly`, `monthly` and `lifetime`, and a listed country shows its exact App Store price. Right now only PH is listed (₱799/year, ₱199/month, ₱1,490 lifetime).
-  - **Everyone else** sees the PH price converted to their currency with rough exchange rates (`APPROX`), rounded (about $14/year, $3.50/month, $26 lifetime in the US) and marked **approx.** A note under the plans says the App Store shows the exact price, taxes included, before they buy.
+  - **Exact prices:** `PRICES` has three tables, `yearly`, `monthly` and `lifetime`, and a listed country shows its exact App Store price. Right now only PH is listed (₱799/year, ₱99/month, ₱1,490 lifetime).
+  - **Everyone else** sees the PH price converted to their currency with rough exchange rates (`APPROX`), rounded (about $14/year, $1.50/month, $26 lifetime in the US) and marked **approx.** A note under the plans says the App Store shows the exact price, taxes included, before they buy.
   - Once the products are set up, copy the prices for your main markets from App Store Connect (each product's **Price Schedule**) into `PRICES`. Those countries then show the exact price instead of an approximation. Update the rates in `APPROX` now and then.
   - "Save N% vs Monthly" is worked out from the yearly and monthly prices, rounded down, like the app's paywall.
 - **Legal pages:** they're a solid starting point, but they aren't legal advice. Have them reviewed if you can.

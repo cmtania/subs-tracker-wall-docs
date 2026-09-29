@@ -43,7 +43,7 @@ function format(amount, currency) {
 
 /**
  * Subwall Pro prices for the visitor, formatted for their locale:
- * { yearly: "₱799", monthly: "₱199", lifetime: "₱1,490", approx: false, yearlySave: 66 }.
+ * { yearly: "₱799", monthly: "₱99", lifetime: "₱1,490", approx: false, yearlySave: 32 }.
  * Regions listed in PRICES get the exact App Store price. Everyone else gets the Philippine
  * price converted to their currency, rounded, with `approx: true` so the page labels it.
  */
@@ -68,7 +68,7 @@ export function useLocalPrices() {
     }
 
     // Yearly against 12 months of Monthly, rounded down so the claim is never overstated
-    // (₱799 / ₱2,388 = 33.5% -> save 66%). Same sum as the app's paywall badge. Uses the
+    // (₱799 / ₱1,188 = 67.3% -> save 32%). Same sum as the app's paywall badge. Uses the
     // visitor's exact prices when we have both, else the base prices (the ratio is the same).
     const yearly = PRICES.yearly[region] ?? PRICES.yearly[APPROX.base];
     const monthly = PRICES.monthly[region] ?? PRICES.monthly[APPROX.base];
