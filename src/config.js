@@ -71,7 +71,7 @@ export const BENEFITS = [
   {
     Icon: CurrencyCircleDollar,
     title: 'Any currency',
-    body: 'Every subscription keeps its own currency. Totals list each one separately, with no guessed exchange rates.',
+    body: 'Every subscription keeps its own price and currency. Totals add up in your main currency at daily exchange rates.',
   },
   {
     Icon: CreditCard,
@@ -302,7 +302,7 @@ export const FAQS = [
   },
   {
     q: 'I pay in different currencies. Does that work?',
-    a: 'Yes. Each subscription keeps its own currency, and totals show each currency separately, like “$42.97 + €9.99”. Subwall doesn’t convert between them, so the numbers never depend on a guessed exchange rate.',
+    a: 'Yes. Each subscription keeps its own price and currency, and reminders say exactly what will be charged. Totals on the wall, the calendar and History add everything up in your main currency, marked ≈, using daily exchange rates from the European Central Bank. Your bank’s own rate and fees may differ a little.',
   },
   {
     q: 'Do I need an account?',
