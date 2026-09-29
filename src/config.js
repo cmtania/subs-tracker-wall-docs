@@ -233,7 +233,7 @@ export const PLANS = [
     body: 'Everything you need to keep track of what you pay for.',
     features: [
       'The 3D wall, calendar and reminders',
-      'Up to 12 subscriptions',
+      'Up to 7 subscriptions',
       'Every currency, per subscription',
       '3 months of history',
       'Share your wall',
@@ -290,7 +290,7 @@ export const PLANS = [
 export const FAQS = [
   {
     q: 'Is Subwall free?',
-    a: 'Yes. The free plan includes the 3D wall, the calendar, reminders and 3 months of history for up to 12 subscriptions. Subwall Pro removes the limit and adds full history, six room themes, Face ID lock and app icons.',
+    a: 'Yes. The free plan includes the 3D wall, the calendar, reminders and 3 months of history for up to 7 subscriptions. Subwall Pro removes the limit and adds full history, six room themes, Face ID lock and app icons.',
   },
   {
     q: 'Does Subwall connect to my bank or cancel subscriptions for me?',
