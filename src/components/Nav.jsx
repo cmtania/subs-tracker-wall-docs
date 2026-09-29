@@ -5,12 +5,13 @@ import { AppleLogo, List, X } from '@phosphor-icons/react';
 import { APP_STORE_URL, NAV, SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
 
+/** A floating glass pill: readable over the dark hero and the light sections alike. */
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -23,10 +24,10 @@ export function Nav() {
   };
 
   return (
-    <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
-      <div className="wrap nav-inner">
+    <header className={`nav ${scrolled ? 'nav-scrolled' : ''} ${open ? 'nav-open' : ''}`}>
+      <div className="nav-pill">
         <a className="brand" href="#top" onClick={go('top')}>
-          <img src="assets/logo.svg" alt="" width="32" height="32" />
+          <img src="assets/logo.svg" alt="" width="30" height="30" />
           <span>Subwall</span>
         </a>
         <nav className="nav-links" aria-label="Sections">
@@ -34,12 +35,12 @@ export function Nav() {
             <a key={id} href={`#${id}`} onClick={go(id)}>{label}</a>
           ))}
         </nav>
-        <a className="btn btn-dark btn-small nav-cta" href={APP_STORE_URL} target="_blank" rel="noopener">
-          <AppleLogo size={18} weight="fill" />
-          Download
+        <a className="nav-cta" href={APP_STORE_URL} target="_blank" rel="noopener">
+          <AppleLogo size={17} weight="fill" />
+          Get the app
         </a>
         <button className="nav-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-          {open ? <X size={26} /> : <List size={26} />}
+          {open ? <X size={24} /> : <List size={24} />}
         </button>
       </div>
       <AnimatePresence>
@@ -47,15 +48,17 @@ export function Nav() {
           <motion.nav
             className="nav-sheet"
             aria-label="Sections"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={SPRING}
           >
             {NAV.map(([label, id]) => (
               <a key={id} href={`#${id}`} onClick={go(id)}>{label}</a>
             ))}
-            <a className="btn btn-dark" href={APP_STORE_URL} target="_blank" rel="noopener"><AppleLogo size={21} weight="fill" /> Download on the App Store</a>
+            <a className="btn btn-accent" href={APP_STORE_URL} target="_blank" rel="noopener">
+              <AppleLogo size={21} weight="fill" /> Download on the App Store
+            </a>
           </motion.nav>
         )}
       </AnimatePresence>

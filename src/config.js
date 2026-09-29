@@ -1,17 +1,12 @@
 import {
   BellRinging,
   CalendarCheck,
-  ChartBar,
   CreditCard,
   CurrencyCircleDollar,
   DeviceMobile,
-  Export,
   EyeSlash,
   LockKey,
-  MagnifyingGlass,
-  PaintBrush,
   Sparkle,
-  SquaresFour,
   WifiSlash,
 } from '@phosphor-icons/react';
 
@@ -21,143 +16,102 @@ export const APP_STORE_URL = 'https://apps.apple.com/app/subwall/id0000000000';
 export const SUPPORT_NAME = 'Christian Tania';
 export const SUPPORT_EMAIL = 'tania.dev.ph@gmail.com';
 
-// Real app screenshots (iPhone captures) go in public/assets/screens/. Until a file exists
-// (or if it fails to load), the phone shows a drawn version of that screen instead.
-// Use made-up brands in screenshots: no real service logos in marketing.
-export const SCREENSHOTS = {
-  wall: 'assets/screens/wall.png',
-  closeup: 'assets/screens/closeup.png',
-  calendar: 'assets/screens/calendar.png',
-  history: 'assets/screens/history.png',
-};
+/** Web images made by tools/make-images.mjs from the app's real captures. */
+export const img = (name) => `assets/web/${name}.webp`;
 
 export const NAV = [
-  ['Features', 'features'],
   ['How it works', 'how'],
+  ['Features', 'features'],
+  ['iPad', 'ipad'],
   ['Pricing', 'pricing'],
   ['FAQ', 'faq'],
 ];
 
-/**
- * Made-up services for the drawings (no real brands or logos on the site).
- * [name, monogram, colour, price, due this week]
- */
-export const DEMO_TILES = [
-  ['Streamly', 'S', '#E4572E', '$15.49', true],
-  ['Tunebox', 'Tb', '#1F8A83', '$10.99', false],
-  ['CloudNest', 'CN', '#3B4CCA', '$2.99', false],
-  ['FitLoop', 'FL', '#3FA34D', '$24.00', true],
-  ['Pixo AI', 'PA', '#8E3B8E', '$20.00', false],
-  ['NewsDay', 'ND', '#C0392B', '$4.99', false],
-  ['Kidflix', 'K', '#F2A93B', '$7.99', false],
-  ['Drivebox', 'D', '#2E86DE', '$9.99', false],
-  ['CodeHub', 'CH', '#3A3A3A', '$4.00', false],
-  ['Lingo', 'L', '#B03A5B', '$6.99', true],
-  ['Readly', 'Re', '#1F3A68', '$9.99', false],
-  ['Gamepass', 'G', '#6B5A4A', '$14.99', false],
-];
-
-export const BENEFITS = [
+/** The scroll story: one pinned iPhone, one screen per step (real captures). */
+export const STORY = [
   {
-    Icon: BellRinging,
-    title: 'Never miss a renewal',
-    body: 'A reminder before every payment, at the time you choose, with the amount and the card it comes from.',
+    screen: 'phone-room',
+    kicker: 'Your room',
+    title: 'Every subscription hangs on the wall',
+    body: 'Each thing you pay for is a tile, with this month’s total and what’s due this week right above it. Tiles due in the next seven days get a yellow border.',
   },
   {
-    Icon: CalendarCheck,
-    title: 'See what’s due this week',
-    body: 'Tiles due in the next seven days get a yellow border, and the wall shows this week’s total at a glance.',
+    screen: 'phone-closeup',
+    kicker: 'Walk up close',
+    title: 'Arrange it your way',
+    body: 'Tap the wall to walk up to it. Drag a tile onto another slot to move it, or tap an empty slot to add a subscription right there.',
   },
   {
-    Icon: CurrencyCircleDollar,
-    title: 'Any currency',
-    body: 'Every subscription keeps its own price and currency. Totals add up in your main currency at daily exchange rates.',
+    screen: 'phone-lifted',
+    kicker: 'Pick up a tile',
+    title: 'Everything about it, in one tap',
+    body: 'Lift a tile to see its price, how often it renews, the next payment and the card it’s charged to.',
   },
   {
-    Icon: CreditCard,
-    title: 'Know which card pays',
-    body: 'Note what each subscription is paid with, so you know which account to top up before the charge.',
+    screen: 'phone-calwall',
+    kicker: 'Slide along the wall',
+    title: 'A paper calendar, next to your tiles',
+    body: 'Swipe along the wall to a calendar with this month’s total. Tap it to open the full Calendar.',
+  },
+  {
+    screen: 'phone-calendar',
+    kicker: 'Plan the month',
+    title: 'Know what’s coming, day by day',
+    body: 'Every payment day is dotted in its service’s colour. Tap a day to see exactly what renews and what it adds up to.',
   },
 ];
 
-export const FEATURES = [
-  {
-    id: 'wall',
-    eyebrow: 'Your subscriptions',
-    title: 'Every subscription is a tile on a real 3D wall',
-    body: 'Subwall puts what you pay for on a wall in a 3D room, with this month’s total and what’s due this week right above it. It’s the first time your subscriptions feel like something you can actually see.',
-    points: ['Up to 20 tiles per wall, with a new wall as you grow (Pro)', 'Search 270+ services, or add your own with a photo or color', 'A light switch on the wall for a dark room at night'],
-    screen: 'wall',
-  },
-  {
-    id: 'closeup',
-    eyebrow: 'Make it yours',
-    title: 'Walk up to the wall and arrange it your way',
-    body: 'Tap the wall to walk up to it. Drag a tile onto another slot to move it, or onto another tile to swap them. Tap a tile to see its price, next payment and the card it’s paid with.',
-    points: ['Drag and drop, with an outline showing where it lands', 'Tap an empty slot to add a subscription right there', 'Pause or cancel a tile without losing its history'],
-    screen: 'closeup',
-  },
-  {
-    id: 'calendar',
-    eyebrow: 'Stay ahead',
-    title: 'Slide along the wall to your calendar',
-    body: 'Swipe to a paper calendar with every payment day circled in its service’s color. Tap This month or Due this week above your tiles to see every payment behind the total, and the Calendar tab lists them day by day.',
-    points: ['This month and this week’s totals on top', 'Tap a day to see exactly what renews', 'History shows your spending month by month'],
-    screen: 'calendar',
-  },
+/** Big numbers band. Every figure is what the app ships with. */
+export const NUMBERS = [
+  { value: 270, suffix: '+', label: 'services in the catalog' },
+  { value: 7, label: 'rooms to choose from' },
+  { value: 7, label: 'calendar styles' },
+  { value: 0, label: 'accounts, ads or trackers' },
 ];
 
-export const BENTO = [
-  {
-    id: 'themes',
-    Icon: PaintBrush,
-    title: 'Six rooms to choose from',
-    body: 'Sage boards, Blush polka dots, Dune limewash, a gold Midnight lattice, Lilac flowers, or a wall built from 3D pixel blocks.',
-    pro: true,
-  },
-  {
-    id: 'share',
-    Icon: Export,
-    title: 'Share your wall',
-    body: 'Turn your wall into a clean picture for Instagram or Messages. Prices stay hidden unless you choose to show them.',
-  },
-  {
-    id: 'history',
-    Icon: ChartBar,
-    title: 'See where the money goes',
-    body: 'Spending by month and by category, plus every price rise and how much you’ve saved since cancelling.',
-  },
-  {
-    id: 'privacy',
-    Icon: LockKey,
-    title: 'Private by design',
-    body: 'No account, no bank connection and no server. Your subscriptions stay on your iPhone or iPad.',
-    points: [
-      [LockKey, 'No sign-in'],
-      [EyeSlash, 'No ads or tracking'],
-      [WifiSlash, 'Works offline'],
-      [DeviceMobile, 'Data stays on device'],
-    ],
-  },
+export const MARQUEE = [
+  [BellRinging, 'Reminders before every renewal'],
+  [CalendarCheck, 'What’s due this week'],
+  [CurrencyCircleDollar, 'Any currency'],
+  [CreditCard, 'Know which card pays'],
+  [LockKey, 'No account'],
+  [EyeSlash, 'No ads or tracking'],
+  [WifiSlash, 'Works offline'],
+  [DeviceMobile, 'iPhone and iPad'],
 ];
 
-export const STEPS = [
-  {
-    Icon: MagnifyingGlass,
-    title: 'Pick your services',
-    body: 'Search 270+ services, with the popular ones in your country first, or add any other subscription yourself.',
-  },
-  {
-    Icon: SquaresFour,
-    title: 'Hang them on your wall',
-    body: 'Add the price, how often it renews and the next payment. The tile takes its place on the wall.',
-  },
-  {
-    Icon: BellRinging,
-    title: 'Get reminded in time',
-    body: 'Subwall reminds you before each payment and before every free trial ends, so nothing renews by surprise.',
-  },
+export const PRIVACY_POINTS = [
+  [LockKey, 'No sign-in'],
+  [EyeSlash, 'No ads or tracking'],
+  [WifiSlash, 'Works offline'],
+  [DeviceMobile, 'Data stays on device'],
 ];
+
+/** Each room theme's wall as a swatch: its colour plus a CSS hint of its pattern. */
+export const THEMES = [
+  ['Sky', 'repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 7px,transparent 7px 14px),#C9DAE8', 'Free'],
+  ['Sage', 'repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 1px,rgba(255,255,255,.2) 1px 2px,transparent 2px 9px),#B7C6AC'],
+  ['Blush', 'radial-gradient(circle,rgba(255,255,255,.7) 1.6px,transparent 2px) 0 0/9px 9px,#EACDC6'],
+  ['Dune', 'radial-gradient(60% 50% at 30% 30%,rgba(255,255,255,.35),transparent),radial-gradient(50% 60% at 75% 70%,rgba(0,0,0,.08),transparent),#E0CFB5'],
+  ['Midnight', 'linear-gradient(60deg,transparent 46%,rgba(212,176,106,.8) 48% 52%,transparent 54%) 0 0/12px 20px,linear-gradient(-60deg,transparent 46%,rgba(212,176,106,.8) 48% 52%,transparent 54%) 0 0/12px 20px,#2B3A55'],
+  ['Lilac', 'radial-gradient(circle,rgba(255,255,255,.65) 2px,transparent 2.5px) 0 0/12px 12px,radial-gradient(circle,rgba(255,255,255,.65) 2px,transparent 2.5px) 6px 6px/12px 12px,#D4CBE5'],
+  ['Blocks', 'linear-gradient(rgba(0,0,0,.18) 1px,transparent 1px) 0 0/12px 12px,linear-gradient(90deg,rgba(0,0,0,.18) 1px,transparent 1px) 0 0/12px 12px,conic-gradient(#8a8a8a 25%,#9a9a9a 0 50%,#848484 0 75%,#949494 0) 0 0/6px 6px'],
+];
+
+/** iPad showcase tabs: the same app, on the big screen. */
+export const IPAD_TABS = [
+  ['The wall', 'pad-room'],
+  ['Up close', 'pad-lifted'],
+  ['Calendar', 'pad-calendar'],
+  ['Room themes', 'pad-themes'],
+  ['Lights off', 'pad-closeup-dark'],
+];
+
+/** The App Store screenshots (made in the app repo, design/appstore), for the gallery. */
+export const SLIDES = {
+  iphone: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-calendar-styles', '09-share', '10-pro'],
+  ipad: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-calendar-styles', '08-share', '09-pro', '10-iphone-and-ipad'],
+};
 
 // Exact Subwall Pro prices per App Store storefront (ISO region code -> ISO currency and amount).
 // Copy these from App Store Connect: each subscription / in-app purchase -> Price Schedule lists

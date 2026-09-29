@@ -37,11 +37,17 @@ Packages:
 
 All motion respects the Reduce Motion setting.
 
-The drawings use made-up services (Streamly, Tunebox, CloudNest…) and no real logos, like the App Store screenshots should.
+Every screen on the page is the real app, running with made-up services (Streamly, Tunebox, CloudNest…) and no real logos, like the App Store screenshots.
 
-## Real app screenshots
+## Images
 
-Drop iPhone captures into `public/assets/screens/` as `wall.png`, `closeup.png`, `calendar.png` and `history.png`. That's the mapping in `SCREENSHOTS` in `src/config.js`. Each phone shows the real screenshot when the file exists, and otherwise a drawn version of the screen. Use demo brands in them, not real service logos.
+The page uses web-sized WebP images in `public/assets/web/`, made from the app repo's captures (`../subs-tracker-wall/docs/raw`) and App Store slides (`../subs-tracker-wall/docs/appstore`):
+
+```
+node tools/make-images.mjs
+```
+
+The list of images (and their crops) is at the top of `tools/make-images.mjs`. It needs Google Chrome, and it also writes `og.jpg`, the link preview. After new captures or slides, run it again and commit `public/assets/web/`.
 
 ## Deploy (one-time setup)
 
