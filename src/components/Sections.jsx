@@ -293,7 +293,7 @@ export function Footer() {
             <img src="assets/logo.svg" alt="" width="32" height="32" />
             <span>Subwall</span>
           </a>
-          <p>Every subscription, on a wall you can see. For iPhone.</p>
+          <p>Every subscription, on a wall you can see. For iPhone and iPad.</p>
         </div>
         <div className="footer-cols">
           <div>

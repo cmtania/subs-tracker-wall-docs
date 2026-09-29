@@ -131,7 +131,7 @@ export const BENTO = [
     id: 'privacy',
     Icon: LockKey,
     title: 'Private by design',
-    body: 'No account, no bank connection and no server. Your subscriptions stay on your iPhone.',
+    body: 'No account, no bank connection and no server. Your subscriptions stay on your iPhone or iPad.',
     points: [
       [LockKey, 'No sign-in'],
       [EyeSlash, 'No ads or tracking'],
@@ -306,7 +306,7 @@ export const FAQS = [
   },
   {
     q: 'Do I need an account?',
-    a: 'No. Subwall has no accounts and no servers. Everything you add stays on your iPhone.',
+    a: 'No. Subwall has no accounts and no servers. Everything you add stays on your iPhone or iPad.',
   },
   {
     q: 'What happens when my wall is full?',
@@ -314,7 +314,7 @@ export const FAQS = [
   },
   {
     q: 'Which devices are supported?',
-    a: 'Subwall is made for iPhone with iOS 26 or later. It also runs on iPad as an iPhone app. Each device keeps its own subscriptions (there’s no syncing yet), and Subwall Pro works on every device with the same Apple ID.',
+    a: 'Any iPhone with iOS 26 or later, and any iPad with iPadOS 26 or later, with a layout made for iPad in portrait, landscape and Split View. Each device keeps its own subscriptions (there’s no syncing yet), and Subwall Pro works on every device with the same Apple ID.',
   },
 ];
 
