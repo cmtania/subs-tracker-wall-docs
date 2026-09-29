@@ -248,7 +248,7 @@ export const PLANS = [
       'Everything in Free',
       'Unlimited subscriptions, a new wall every 20',
       'Full history and charts',
-      '6 room themes',
+      '6 room themes and 6 calendar styles',
       'Face ID lock and app icons',
     ],
     cta: 'Start free trial',
