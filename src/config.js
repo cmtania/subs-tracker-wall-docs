@@ -166,12 +166,15 @@ export const STEPS = [
 export const PRICES = {
   yearly: {
     PH: { currency: 'PHP', amount: 799 },
+    US: { currency: 'USD', amount: 12.99 },
   },
   monthly: {
     PH: { currency: 'PHP', amount: 99 },
+    US: { currency: 'USD', amount: 1.99 },
   },
   lifetime: {
     PH: { currency: 'PHP', amount: 1490 },
+    US: { currency: 'USD', amount: 22.99 },
   },
 };
 
