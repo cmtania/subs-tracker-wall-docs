@@ -94,7 +94,7 @@ export const PRIVACY_POINTS = [
 export const THEMES = [
   ['Sky', 'repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 7px,transparent 7px 14px),#C9DAE8', 'Free'],
   ['Sage', 'repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 1px,rgba(255,255,255,.2) 1px 2px,transparent 2px 9px),#B7C6AC'],
-  ['Blush', 'radial-gradient(circle,rgba(255,255,255,.7) 1.6px,transparent 2px) 0 0/9px 9px,#EACDC6'],
+  ['Brick', 'linear-gradient(rgba(0,0,0,.13) 1px,transparent 1px) 0 0/16px 7px,linear-gradient(90deg,rgba(0,0,0,.13) 1px,transparent 1px) 0 0/16px 14px,linear-gradient(90deg,rgba(0,0,0,.13) 1px,transparent 1px) 8px 7px/16px 14px,#F1F1EE'],
   ['Dune', 'radial-gradient(60% 50% at 30% 30%,rgba(255,255,255,.35),transparent),radial-gradient(50% 60% at 75% 70%,rgba(0,0,0,.08),transparent),#E0CFB5'],
   ['Midnight', 'linear-gradient(60deg,transparent 46%,rgba(212,176,106,.8) 48% 52%,transparent 54%) 0 0/12px 20px,linear-gradient(-60deg,transparent 46%,rgba(212,176,106,.8) 48% 52%,transparent 54%) 0 0/12px 20px,#2B3A55'],
   ['Lilac', 'radial-gradient(circle,rgba(255,255,255,.65) 2px,transparent 2.5px) 0 0/12px 12px,radial-gradient(circle,rgba(255,255,255,.65) 2px,transparent 2.5px) 6px 6px/12px 12px,#D4CBE5'],

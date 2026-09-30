@@ -154,7 +154,7 @@ function Rooms() {
   return (
     <>
       <CardText Icon={PaintBrush} kicker="Room themes" title="Seven rooms. Make it yours." pro>
-        Calm Sky comes free. Pro adds Sage boards, Blush polka dots, Dune limewash, a gold Midnight lattice, Lilac
+        Calm Sky comes free. Pro adds Sage boards, white-painted Brick, Dune limewash, a gold Midnight lattice, Lilac
         flowers and a wall built from 3D pixel Blocks.
       </CardText>
       <div className="rooms-art">
