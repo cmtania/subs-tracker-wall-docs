@@ -7,6 +7,7 @@ import {
   EyeSlash,
   LockKey,
   Sparkle,
+  SquaresFour,
   WifiSlash,
 } from '@phosphor-icons/react';
 
@@ -78,6 +79,7 @@ export const MARQUEE = [
   [EyeSlash, 'No ads or tracking'],
   [WifiSlash, 'Works offline'],
   [DeviceMobile, 'iPhone and iPad'],
+  [SquaresFour, 'Home and Lock Screen widgets'],
 ];
 
 export const PRIVACY_POINTS = [
@@ -191,6 +193,7 @@ export const PLANS = [
       'Every currency, per subscription',
       '3 months of history',
       'Share your wall',
+      'Due this week widget',
     ],
     cta: 'Download free',
   },
@@ -206,6 +209,7 @@ export const PLANS = [
       'Unlimited subscriptions, a new wall every 20',
       'Full history and charts',
       '6 room themes and 6 calendar styles',
+      'Home and Lock Screen widgets',
       'Face ID lock and app icons',
     ],
     cta: 'Start free trial',
@@ -244,7 +248,7 @@ export const PLANS = [
 export const FAQS = [
   {
     q: 'Is Subwall free?',
-    a: 'Yes. The free plan includes the 3D wall, the calendar, reminders and 3 months of history for up to 7 subscriptions. Subwall Pro removes the limit and adds full history, six room themes, Face ID lock and app icons.',
+    a: 'Yes. The free plan includes the 3D wall, the calendar, reminders and 3 months of history for up to 7 subscriptions. Subwall Pro removes the limit and adds full history, more widgets, six room themes, Face ID lock and app icons.',
   },
   {
     q: 'Does Subwall connect to my bank or cancel subscriptions for me?',
@@ -257,6 +261,10 @@ export const FAQS = [
   {
     q: 'I pay in different currencies. Does that work?',
     a: 'Yes. Each subscription keeps its own price and currency, and reminders say exactly what will be charged. Totals on the wall, the calendar and History add everything up in your main currency, marked ≈, using daily exchange rates from the European Central Bank. Your bank’s own rate and fees may differ a little.',
+  },
+  {
+    q: 'Are there widgets?',
+    a: 'Yes. The Due this week widget is free: it shows what renews in the next seven days and what it adds up to. Subwall Pro adds Next payment, This month, a Mini wall of your tiles, and three Lock Screen widgets. Add them from the Home Screen: touch and hold, tap Edit, then Add Widget, and search for Subwall.',
   },
   {
     q: 'Do I need an account?',
