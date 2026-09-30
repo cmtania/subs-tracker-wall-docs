@@ -9,6 +9,7 @@ import { Nav } from './components/Nav.jsx';
 import { Cta, Faq, Footer, Pricing } from './components/Sections.jsx';
 import { Gallery, IpadShowcase, Marquee, Numbers } from './components/Showcase.jsx';
 import { Story } from './components/Story.jsx';
+import { Widgets } from './components/Widgets.jsx';
 import { startSmoothScroll } from './smooth-scroll.js';
 import './landing.css';
 
@@ -23,6 +24,7 @@ function App() {
         <Marquee />
         <Story />
         <Features />
+        <Widgets />
         <Numbers />
         <IpadShowcase />
         <Gallery />

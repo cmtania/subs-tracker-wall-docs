@@ -20,6 +20,7 @@ const chrome = process.env.CHROME ?? 'C:/Program Files/Google/Chrome/Application
 
 const phone = (t) => join(app, `docs/raw/Simulator Screenshot - iPhone 17 Pro - 2026-09-29 at ${t}.png`);
 const pad = (t) => join(app, `docs/raw/Simulator Screenshot - iPad Pro 13-inch (M5) - 2026-09-29 at ${t}.png`);
+const widgets = (t) => join(app, `docs/raw/widgets/Simulator Screenshot - iPhone 17 Pro - 2026-09-30 at ${t}.png`);
 const slide = (dir, name) => join(app, `docs/appstore/${dir}/${name}.png`);
 
 // [output name, source file, width, crop [x, y, w, h] in source pixels (optional), quality, format]
@@ -66,10 +67,18 @@ const IMAGES = [
   // Calendar style thumbnails (exact edges, measured from the capture).
   ['style-kraft', pad('17.11.52'), 440, [1511, 533, 291, 332]],
   ['style-blueprint', pad('17.11.52'), 440, [1511, 955, 291, 332]],
+  // Widgets, cut from Home Screen captures (2 px inside each widget's edge; rounded in CSS).
+  ['widget-due', widgets('21.21.50'), 489, [80, 273, 489, 489], 0.9],
+  ['widget-next', widgets('21.21.50'), 489, [635, 273, 489, 489], 0.9],
+  ['widget-next-wide', widgets('21.21.50'), 1045, [80, 1386, 1045, 489], 0.9],
+  ['widget-month', widgets('21.23.56'), 489, [80, 272, 489, 489], 0.9],
+  ['widget-month-wide', widgets('21.23.56'), 1045, [80, 827, 1045, 489], 0.9],
+  ['widget-wall-wide', widgets('21.25.22'), 1045, [80, 209, 1045, 489], 0.9],
+  ['widget-wall-large', widgets('21.25.22'), 1045, [80, 764, 1045, 1091], 0.9],
   // The App Store slides, for the gallery.
-  ...['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-calendar-styles', '09-share', '10-pro']
+  ...['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-widgets', '09-share', '10-pro']
     .map((n) => [`slide-iphone-${n}`, slide('iphone', `iphone-${n}`), 600]),
-  ...['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-calendar-styles', '08-share', '09-pro', '10-iphone-and-ipad']
+  ...['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-widgets', '08-share', '09-pro', '10-iphone-and-ipad']
     .map((n) => [`slide-ipad-${n}`, slide('ipad', `ipad-${n}`), 1200]),
 ];
 

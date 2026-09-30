@@ -23,6 +23,7 @@ export const img = (name) => `assets/web/${name}.webp`;
 export const NAV = [
   ['How it works', 'how'],
   ['Features', 'features'],
+  ['Widgets', 'widgets'],
   ['iPad', 'ipad'],
   ['Pricing', 'pricing'],
   ['FAQ', 'faq'],
@@ -109,10 +110,19 @@ export const IPAD_TABS = [
   ['Lights off', 'pad-closeup-dark'],
 ];
 
+/** The widgets (images cut from Home Screen captures; the Lock Screen set is drawn). */
+export const WIDGETS = [
+  { name: 'Due this week', blurb: 'The week’s total, and the tiles behind it.', pro: false, image: 'widget-due', shape: 'small', alt: 'The Due this week widget: $45.96, 4 payments' },
+  { name: 'Next payment', blurb: 'Two on the same day? You see both, and the total.', pro: true, image: 'widget-next-wide', shape: 'wide', alt: 'The Next payment widget: 2 renewals today, $25.98, Tunebox and Pixo AI' },
+  { name: 'This month', blurb: 'Paid so far, still to go, and your yearly total.', pro: true, image: 'widget-month-wide', shape: 'wide', alt: 'The This month widget: $45.96, 2 of 4 paid, $25.98 to go' },
+  { name: 'Mini wall', blurb: 'Your tiles on the Home Screen. Due ones glow yellow.', pro: true, image: 'widget-wall-large', shape: 'large', alt: 'The Mini wall widget: seven tiles with prices on the Sky wall' },
+  { name: 'Lock Screen', blurb: 'A count, your next payment, and a line by the clock.', pro: true, lock: true, shape: 'lock', alt: 'Lock Screen widgets: 4 due this week, and the next payment' },
+];
+
 /** The App Store screenshots (made in the app repo, design/appstore), for the gallery. */
 export const SLIDES = {
-  iphone: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-calendar-styles', '09-share', '10-pro'],
-  ipad: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-calendar-styles', '08-share', '09-pro', '10-iphone-and-ipad'],
+  iphone: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-widgets', '09-share', '10-pro'],
+  ipad: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-widgets', '08-share', '09-pro', '10-iphone-and-ipad'],
 };
 
 // Exact Subwall Pro prices per App Store storefront (ISO region code -> ISO currency and amount).

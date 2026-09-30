@@ -174,6 +174,7 @@ export function Footer() {
             <b>Product</b>
             <a href="#how">How it works</a>
             <a href="#features">Features</a>
+            <a href="#widgets">Widgets</a>
             <a href="#ipad">iPad</a>
             <a href="#pricing">Pricing</a>
           </div>
