@@ -25,20 +25,39 @@ export const STORE_FACTS = [
   ['Developer', 'Christian Tania'],
 ];
 
+/**
+ * Example subscriptions for the page's drawn tiles and cards: [name, monogram, colour, monthly
+ * price in USD]. Real services people pay for, shown as the app shows them (a monogram tile in
+ * the service's colour). The names are their owners' trademarks; see the footer note.
+ */
+export const BRANDS = {
+  netflix: ['Netflix', 'Ne', '#E50914', 17.99],
+  spotify: ['Spotify', 'Sp', '#1DB954', 11.99],
+  youtube: ['YouTube Premium', 'YT', '#FF0033', 13.99],
+  disney: ['Disney+', 'D+', '#113CCF', 15.99],
+  icloud: ['iCloud+', 'iC', '#3693F3', 2.99],
+  applemusic: ['Apple Music', 'AM', '#FA243C', 10.99],
+  claude: ['Claude Pro', 'Cl', '#D97757', 20],
+  chatgpt: ['ChatGPT Plus', 'GPT', '#10A37F', 20],
+  googlecloud: ['Google Cloud', 'GC', '#4285F4', 9.99],
+  linkedin: ['LinkedIn Premium', 'in', '#0A66C2', 39.99],
+  capcut: ['CapCut Pro', 'CC', '#1F1F1F', 9.99],
+};
+
 /** The three-step section, each on a tile. */
 export const STEPS = [
   {
-    tile: 'st',
+    tile: 'netflix',
     title: 'Hang what you pay for',
     body: 'Pick from 270+ services, with the popular ones in your country first, or add anything else with your own photo or colour. Each one becomes a tile on your wall.',
   },
   {
-    tile: 'tu',
+    tile: 'spotify',
     title: 'Get a heads-up',
     body: 'A reminder before every renewal, at the time you choose, with how much and which card. Free trials get one two days before they end.',
   },
   {
-    tile: 'pa',
+    tile: 'chatgpt',
     title: 'See what it adds up to',
     body: 'This month’s total and what’s due this week sit right above your tiles. History shows the money month by month and by category.',
   },

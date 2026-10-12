@@ -9,11 +9,11 @@ import { IPad, IPhone, LightSwitch, Tile } from './Devices.jsx';
 
 // Tiles floating around the devices: [tile, left %, top %, size (px), rotation, depth].
 const FLOATERS = [
-  ['st', -2, 10, 132, -14, 1.4],
-  ['cl', 90, 4, 118, 12, 1.1],
-  ['fi', 94, 58, 104, -9, 1.6],
-  ['te', -4, 64, 112, 10, 1.2],
-  ['pa', 12, -8, 86, 8, 0.7],
+  ['netflix', -2, 10, 132, -14, 1.4],
+  ['chatgpt', 90, 4, 118, 12, 1.1],
+  ['spotify', 94, 58, 104, -9, 1.6],
+  ['disney', -4, 64, 112, 10, 1.2],
+  ['icloud', 12, -8, 86, 8, 0.7],
 ];
 
 export function Hero() {

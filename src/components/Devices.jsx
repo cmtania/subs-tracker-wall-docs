@@ -1,4 +1,5 @@
-import { img } from '../config.js';
+import { CreditCard } from '@phosphor-icons/react';
+import { img, BRANDS } from '../config.js';
 
 /**
  * Screens stacked in one frame. The first image sizes the frame; the others sit on top and
@@ -43,9 +44,58 @@ export function IPad({ screens, active = 0, className = '', eager = false, style
   );
 }
 
-/** A 3D tile from the app's wall (cut from a real capture). */
-export function Tile({ name, className = '', style }) {
-  return <img className={`tile3d ${className}`} src={img(`tile-${name}`)} alt="" style={style} loading="lazy" draggable={false} />;
+/**
+ * A tile as it hangs on the app's wall: a monogram in the service's colour over its price, with
+ * the yellow border of a payment due this week (`due`). Drawn in CSS from BRANDS, so any example
+ * service can hang anywhere on the page.
+ */
+export function Tile({ name, className = '', style, due = true }) {
+  const [label, monogram, color, price] = BRANDS[name] ?? BRANDS.netflix;
+  return (
+    <span className={`tile3d brand-tile ${due ? 'due' : ''} ${className}`} style={{ ...style, '--brand': color }} title={label} aria-hidden="true">
+      <span className="brand-face">
+        <b style={{ fontSize: monogram.length > 2 ? '30cqw' : undefined }}>{monogram}</b>
+        <small>${price.toFixed(2)}</small>
+      </span>
+    </span>
+  );
+}
+
+/** The wall's "Due this week" card, drawn with example services. */
+export function DueCard({ names, className = '' }) {
+  const total = names.reduce((sum, n) => sum + BRANDS[n][3], 0);
+  return (
+    <div className={`lift-card due-card drawn-due ${className}`} role="img" aria-label={`The Due this week card: $${total.toFixed(2)} for ${names.map((n) => BRANDS[n][0]).join(', ')}`}>
+      <span className="dd-kicker">Due this week</span>
+      <div className="dd-row">
+        <b>${total.toFixed(2)}</b>
+        <span className="dd-stack">
+          {names.map((n) => <span key={n} style={{ '--brand': BRANDS[n][2] }}>{BRANDS[n][1]}</span>)}
+        </span>
+      </div>
+      <p>{names.map((n) => BRANDS[n][0]).join(', ')}</p>
+      <p className="dd-foot"><span>From Credit Card</span><b>USD</b></p>
+    </div>
+  );
+}
+
+/** A lifted tile's card: name, price, how often, next date, and what pays for it. */
+export function LiftedCard({ name, next, method, className = '' }) {
+  const [label, monogram, color, price] = BRANDS[name];
+  return (
+    <div className={`lift-card pays-card drawn-lifted ${className}`} role="img" aria-label={`A lifted tile's card: ${label}, $${price.toFixed(2)} monthly, paid with ${method}`}>
+      <div className="dl-head">
+        <span className="dl-icon" style={{ '--brand': color }}>{monogram}</span>
+        <span>
+          <b>{label}</b>
+          <small>${price.toFixed(2)} · Monthly · {next}</small>
+        </span>
+      </div>
+      <p className="dl-paid"><CreditCard size={22} weight="fill" /> Paid with {method}</p>
+      <p className="dl-hint">Drag a tile onto another slot to move it</p>
+      <div className="dl-buttons"><span className="dl-details">Details</span><span className="dl-back">Put back</span></div>
+    </div>
+  );
 }
 
 /**

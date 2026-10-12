@@ -4,13 +4,13 @@ import { CreditCard, CurrencyCircleDollar, LockKey, PaintBrush, CalendarBlank, C
 
 import { img, PRIVACY_POINTS, SPRING, THEMES } from '../config.js';
 import { Reveal, SectionHead } from './common.jsx';
-import { IPhone, Tile } from './Devices.jsx';
+import { DueCard, IPhone, LiftedCard, Tile } from './Devices.jsx';
 
 /** Reminder banners, in the app's own wording (see ReminderScheduler in the app). */
 const BANNERS = [
-  ['now', 'Streamly renews today', '$17.99 will be charged to Credit Card on Tue, Sep 29.'],
-  ['1h ago', 'Tunebox renews tomorrow', '$11.99 will be charged to Apple Pay on Wed, Sep 30.'],
-  ['2h ago', 'FitLoop free trial ends soon', 'Your trial ends Friday, October 2. Cancel before then if you don’t want to pay.'],
+  ['now', 'Netflix renews today', '$17.99 will be charged to Credit Card on Mon, Oct 12.'],
+  ['1h ago', 'Spotify renews tomorrow', '$11.99 will be charged to Apple Pay on Tue, Oct 13.'],
+  ['2h ago', 'YouTube Premium free trial ends soon', 'Your trial ends Wednesday, October 14. Cancel before then if you don’t want to pay.'],
 ];
 
 const CURRENCIES = [['$', 'USD'], ['€', 'EUR'], ['₱', 'PHP'], ['£', 'GBP'], ['¥', 'JPY'], ['₹', 'INR'], ['A$', 'AUD'], ['R$', 'BRL']];
@@ -57,9 +57,9 @@ export function Features() {
               Tiles due in the next seven days get a yellow border, and this week’s total sits right on the wall.
             </CardText>
             <div className="due-art">
-              <img className="lift-card due-card" src={img('card-due')} alt="The Due this week card: $65.94 from Streamly, Subwall and Tunebox" loading="lazy" />
-              <Tile name="st" className="due-tile due-tile-1" />
-              <Tile name="tu" className="due-tile due-tile-2" />
+              <DueCard names={['netflix', 'spotify', 'chatgpt']} />
+              <Tile name="netflix" className="due-tile due-tile-1" />
+              <Tile name="spotify" className="due-tile due-tile-2" />
             </div>
           </Reveal>
 
@@ -85,8 +85,8 @@ export function Features() {
             <CardText Icon={CreditCard} kicker="Paid with" title="Know which card pays.">
               Note the card or wallet behind each subscription, so you can top up the right account before the charge.
             </CardText>
-            <Tile name="st" className="pays-tile" />
-            <img className="lift-card pays-card" src={img('card-lifted')} alt="A lifted tile's card: Streamly, $17.99 monthly, paid with Credit Card" loading="lazy" />
+            <Tile name="netflix" className="pays-tile" />
+            <LiftedCard name="netflix" next="Oct 12" method="Credit Card" />
           </Reveal>
 
           <Reveal className="card card-dark bento-private" delay={0.12}>
@@ -161,7 +161,7 @@ function Rooms() {
         <div className="room-preview" style={{ background: pattern }}>
           <span className="room-name">{name}{note ? ` · ${note}` : ''}</span>
           <div className="room-tiles" aria-hidden="true">
-            <Tile name="st" /><Tile name="tu" /><Tile name="cl" /><Tile name="fi" />
+            <Tile name="netflix" due={false} /><Tile name="spotify" due={false} /><Tile name="youtube" due={false} /><Tile name="claude" due={false} />
           </div>
         </div>
         <div className="swatches" role="radiogroup" aria-label="Room themes">

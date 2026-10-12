@@ -124,7 +124,7 @@ export function Cta() {
       <div className="cta-room" aria-hidden="true">
         <div className="cta-spot" />
         <div className="cta-wall">
-          {['st', 'tu', 'pa', 'cl', 'ki', 'fi', 'te'].map((name, i) => (
+          {['netflix', 'spotify', 'youtube', 'disney', 'icloud', 'applemusic', 'claude', 'chatgpt', 'googlecloud', 'linkedin', 'capcut'].map((name, i) => (
             <motion.div
               key={name}
               className="cta-tile"
@@ -136,7 +136,7 @@ export function Cta() {
               <Tile name={name} />
             </motion.div>
           ))}
-          {[0, 1, 2, 3, 4].map((i) => <span key={i} className="cta-slot" />)}
+          {[0].map((i) => <span key={i} className="cta-slot" />)}
         </div>
       </div>
       <div className="wrap cta-copy">
@@ -195,7 +195,11 @@ export function Footer() {
       <div className="footer-word" aria-hidden="true">Subwall</div>
       <div className="wrap footer-base">
         <span>© {new Date().getFullYear()} Subwall. All rights reserved.</span>
-        <span>Apple, iPhone, iPad and App Store are trademarks of Apple Inc.</span>
+        <span>
+          Apple, iPhone, iPad, iCloud+, Apple Music and App Store are trademarks of Apple Inc. Netflix, Spotify, YouTube,
+          Disney+, Claude, ChatGPT, Google Cloud, LinkedIn and CapCut are trademarks of their owners, shown as examples of
+          what you can track. Subwall isn’t affiliated with or endorsed by them.
+        </span>
       </div>
     </footer>
   );

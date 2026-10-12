@@ -73,14 +73,14 @@ export function Widgets() {
                   exit={{ opacity: 0, scale: 0.94 }}
                   transition={SPRING}
                 >
-                  <div className="lock-inline">4 due this week · $45.96</div>
+                  <div className="lock-inline">4 due this week · $69.98</div>
                   <div className="lock-clock">9:41</div>
                   <div className="lock-row">
                     <div className="lock-circle"><b>4</b><small>due</small></div>
                     <div className="lock-rect">
                       <b>Today</b>
-                      <span>2 renewals · $25.98</span>
-                      <small>Tunebox and Pixo AI</small>
+                      <span>2 renewals · $37.98</span>
+                      <small>Netflix and ChatGPT Plus</small>
                     </div>
                   </div>
                 </motion.div>
