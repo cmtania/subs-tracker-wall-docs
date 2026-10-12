@@ -53,11 +53,12 @@ The list of images (and their crops) is at the top of `tools/make-images.mjs`. I
 
 1. Push this folder to `github.com/cmtania/subs-tracker-wall-docs` on the `main` branch.
 2. In the repo, go to **Settings → Pages → Source** and choose **GitHub Actions**.
-3. Every push to `main` then builds and publishes to `https://cmtania.github.io/subs-tracker-wall-docs/`.
+3. Custom domain: in **Settings → Pages → Custom domain** enter `subwall.guruchanworks.com` and tick **Enforce HTTPS** (`public/CNAME` carries the same name). At the DNS host for guruchanworks.com, add a **CNAME** record: `subwall` → `cmtania.github.io`.
+4. Every push to `main` then builds and publishes to `https://subwall.guruchanworks.com/`. The old `cmtania.github.io/subs-tracker-wall-docs/` address redirects there.
 
 Use these URLs in App Store Connect (the app's Settings → About Subwall links to the same pages):
-- Support: `https://cmtania.github.io/subs-tracker-wall-docs/support.html`
-- Privacy Policy: `https://cmtania.github.io/subs-tracker-wall-docs/privacy.html`
+- Support: `https://subwall.guruchanworks.com/support.html`
+- Privacy Policy: `https://subwall.guruchanworks.com/privacy.html`
 
 ## Still a placeholder
 
