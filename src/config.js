@@ -27,21 +27,22 @@ export const STORE_FACTS = [
 
 /**
  * Example subscriptions for the page's drawn tiles and cards: [name, monogram, colour, monthly
- * price in USD]. Real services people pay for, shown as the app shows them (a monogram tile in
- * the service's colour). The names are their owners' trademarks; see the footer note.
+ * price in USD]. Real services people pay for, shown as the app shows them: the service's logo
+ * (public/assets/brands/<key>.svg, the same artwork the app uses) in white on its colour. The
+ * names and logos are their owners' trademarks; see the footer note.
  */
 export const BRANDS = {
   netflix: ['Netflix', 'Ne', '#E50914', 17.99],
   spotify: ['Spotify', 'Sp', '#1DB954', 11.99],
   youtube: ['YouTube Premium', 'YT', '#FF0033', 13.99],
   disney: ['Disney+', 'D+', '#113CCF', 15.99],
+  canva: ['Canva Pro', 'Ca', '#00C4CC', 14.99],
   icloud: ['iCloud+', 'iC', '#3693F3', 2.99],
   applemusic: ['Apple Music', 'AM', '#FA243C', 10.99],
   claude: ['Claude Pro', 'Cl', '#D97757', 20],
   chatgpt: ['ChatGPT Plus', 'GPT', '#10A37F', 20],
   googlecloud: ['Google Cloud', 'GC', '#4285F4', 9.99],
   linkedin: ['LinkedIn Premium', 'in', '#0A66C2', 39.99],
-  capcut: ['CapCut Pro', 'CC', '#1F1F1F', 9.99],
 };
 
 /** The three-step section, each on a tile. */

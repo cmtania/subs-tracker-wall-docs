@@ -44,17 +44,25 @@ export function IPad({ screens, active = 0, className = '', eager = false, style
   );
 }
 
+/** The service's logo in white, drawn as a mask so any logo takes the tile's ink colour. */
+function Logo({ name, className = 'brand-logo' }) {
+  // Set on the element (not through a CSS variable), so the path resolves from the page.
+  const mask = `url(assets/brands/${name}.svg) center / contain no-repeat`;
+  return <i className={className} style={{ WebkitMask: mask, mask }} aria-hidden="true" />;
+}
+
 /**
- * A tile as it hangs on the app's wall: a monogram in the service's colour over its price, with
+ * A tile as it hangs on the app's wall: the service's logo on its colour over the price, with
  * the yellow border of a payment due this week (`due`). Drawn in CSS from BRANDS, so any example
  * service can hang anywhere on the page.
  */
 export function Tile({ name, className = '', style, due = true }) {
-  const [label, monogram, color, price] = BRANDS[name] ?? BRANDS.netflix;
+  const [label, , color, price] = BRANDS[name] ?? BRANDS.netflix;
+  if (!BRANDS[name]) name = 'netflix';
   return (
     <span className={`tile3d brand-tile ${due ? 'due' : ''} ${className}`} style={{ ...style, '--brand': color }} title={label} aria-hidden="true">
       <span className="brand-face">
-        <b style={{ fontSize: monogram.length > 2 ? '30cqw' : undefined }}>{monogram}</b>
+        <b><Logo name={name} /></b>
         <small>${price.toFixed(2)}</small>
       </span>
     </span>
@@ -70,7 +78,7 @@ export function DueCard({ names, className = '' }) {
       <div className="dd-row">
         <b>${total.toFixed(2)}</b>
         <span className="dd-stack">
-          {names.map((n) => <span key={n} style={{ '--brand': BRANDS[n][2] }}>{BRANDS[n][1]}</span>)}
+          {names.map((n) => <span key={n} style={{ '--brand': BRANDS[n][2] }}><Logo name={n} /></span>)}
         </span>
       </div>
       <p>{names.map((n) => BRANDS[n][0]).join(', ')}</p>
@@ -81,11 +89,11 @@ export function DueCard({ names, className = '' }) {
 
 /** A lifted tile's card: name, price, how often, next date, and what pays for it. */
 export function LiftedCard({ name, next, method, className = '' }) {
-  const [label, monogram, color, price] = BRANDS[name];
+  const [label, , color, price] = BRANDS[name];
   return (
     <div className={`lift-card pays-card drawn-lifted ${className}`} role="img" aria-label={`A lifted tile's card: ${label}, $${price.toFixed(2)} monthly, paid with ${method}`}>
       <div className="dl-head">
-        <span className="dl-icon" style={{ '--brand': color }}>{monogram}</span>
+        <span className="dl-icon" style={{ '--brand': color }}><Logo name={name} /></span>
         <span>
           <b>{label}</b>
           <small>${price.toFixed(2)} · Monthly · {next}</small>
