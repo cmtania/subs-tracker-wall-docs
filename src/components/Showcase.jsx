@@ -118,7 +118,7 @@ export function Gallery() {
           center={false}
           eyebrow="On the App Store"
           title={<>Take the <span className="grad-warm">full tour.</span></>}
-          body="Every screen here is Subwall as it runs on iPhone and iPad, with made-up services."
+          body="The same screenshots as on the App Store: Subwall as it runs on iPhone and iPad, with made-up services."
         />
         <div className="gallery-controls">
           <div className="seg" role="tablist" aria-label="Device">

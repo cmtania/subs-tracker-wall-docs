@@ -5,6 +5,7 @@ import '@fontsource-variable/plus-jakarta-sans';
 
 import { Features } from './components/Features.jsx';
 import { Hero } from './components/Hero.jsx';
+import { Contact, Steps, StoreCard } from './components/Launch.jsx';
 import { Nav } from './components/Nav.jsx';
 import { Cta, Faq, Footer, Pricing } from './components/Sections.jsx';
 import { Gallery, IpadShowcase, Marquee, Numbers } from './components/Showcase.jsx';
@@ -22,14 +23,17 @@ function App() {
       <main>
         <Hero />
         <Marquee />
+        <Steps />
         <Story />
         <Features />
         <Widgets />
         <Numbers />
         <IpadShowcase />
         <Gallery />
+        <StoreCard />
         <Pricing />
         <Faq />
+        <Contact />
         <Cta />
       </main>
       <Footer />

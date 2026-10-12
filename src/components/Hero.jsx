@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'motion/react';
 import { ArrowDown } from '@phosphor-icons/react';
 
-import { SPRING } from '../config.js';
+import { APP_STORE_URL, SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
 import { AppStoreButton } from './common.jsx';
 import { IPad, IPhone, LightSwitch, Tile } from './Devices.jsx';
@@ -49,9 +49,17 @@ export function Hero() {
       </div>
 
       <div className="wrap hero-copy">
-        <motion.span className="pill hero-pill" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={SPRING}>
-          <i /> For iPhone and iPad
-        </motion.span>
+        <motion.a
+          className="pill hero-pill hero-pill-live"
+          href={APP_STORE_URL}
+          target="_blank"
+          rel="noopener"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={SPRING}
+        >
+          <i /> New · Now on the App Store
+        </motion.a>
         <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ ...SPRING, delay: 0.06 }}>
           Every subscription,
           <br />
@@ -73,6 +81,7 @@ export function Hero() {
           >
             See how it works <ArrowDown size={18} weight="bold" />
           </a>
+          <p className="hero-facts">Free · iPhone and iPad · iOS 26 · No account</p>
           <div className="hero-switch">
             <LightSwitch on={lightsOn} onToggle={() => setLightsOn((v) => !v)} label="Room lights: try the switch" />
             <p>

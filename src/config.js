@@ -11,8 +11,38 @@ import {
   WifiSlash,
 } from '@phosphor-icons/react';
 
-// TODO at launch: the real App Store URL.
-export const APP_STORE_URL = 'https://apps.apple.com/app/subwall/id0000000000';
+// Live on the App Store since 12 October 2026 (no country in the path, so Apple sends each
+// visitor to their own storefront).
+export const APP_STORE_URL = 'https://apps.apple.com/app/subwall-subscription-tracker/id6817052525';
+
+/** The App Store listing's facts, for the download card. */
+export const STORE_FACTS = [
+  ['Price', 'Free', 'Pro is optional'],
+  ['Category', 'Finance'],
+  ['Age rating', '4+'],
+  ['Works on', 'iPhone and iPad', 'iOS 26 or later'],
+  ['Size', '5.1 MB'],
+  ['Developer', 'Christian Tania'],
+];
+
+/** The three-step section, each on a tile. */
+export const STEPS = [
+  {
+    tile: 'st',
+    title: 'Hang what you pay for',
+    body: 'Pick from 270+ services, with the popular ones in your country first, or add anything else with your own photo or colour. Each one becomes a tile on your wall.',
+  },
+  {
+    tile: 'tu',
+    title: 'Get a heads-up',
+    body: 'A reminder before every renewal, at the time you choose, with how much and which card. Free trials get one two days before they end.',
+  },
+  {
+    tile: 'pa',
+    title: 'See what it adds up to',
+    body: 'This month’s total and what’s due this week sit right above your tiles. History shows the money month by month and by category.',
+  },
+];
 // Support contact (also written into public/support.html, privacy.html and terms.html).
 export const SUPPORT_NAME = 'Christian Tania';
 export const SUPPORT_EMAIL = 'tania.dev.ph@gmail.com';
@@ -25,6 +55,7 @@ export const NAV = [
   ['Features', 'features'],
   ['Widgets', 'widgets'],
   ['iPad', 'ipad'],
+  ['Download', 'download'],
   ['Pricing', 'pricing'],
   ['FAQ', 'faq'],
 ];
@@ -119,9 +150,9 @@ export const WIDGETS = [
   { name: 'Lock Screen', blurb: 'A count, your next payment, and a line by the clock.', pro: true, lock: true, shape: 'lock', alt: 'Lock Screen widgets: 4 due this week, and the next payment' },
 ];
 
-/** The App Store screenshots (made in the app repo, design/appstore), for the gallery. */
+/** The App Store screenshots (made in the app repo, design/appstore), in the listing's order. */
 export const SLIDES = {
-  iphone: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-totals', '07-rooms', '08-widgets', '09-share', '10-pro'],
+  iphone: ['01-wall', '02-lights', '04-reminders', '03-up-close', '05-calendar', '06-totals', '07-rooms', '08-widgets', '09-share', '10-pro'],
   ipad: ['01-wall', '02-lights', '03-up-close', '04-reminders', '05-calendar', '06-rooms', '07-widgets', '08-share', '09-pro', '10-iphone-and-ipad'],
 };
 
