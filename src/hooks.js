@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'motion/react';
 
 import { APPROX, PRICES, REGION_BY_TIMEZONE } from './config.js';
 
@@ -22,6 +23,20 @@ function visitorRegion() {
     }
   }
   return null;
+}
+
+/**
+ * A ref for an element moved by scroll (parallax, the hero's tilt). The prerendered HTML has the
+ * starting transform baked in; with Reduce Motion on, the scroll values never change, so motion
+ * never rewrites it and React doesn't patch styles on hydration. This clears it once mounted.
+ */
+export function useStillWhenReduced() {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  useEffect(() => {
+    if (reduce && ref.current) ref.current.style.transform = 'none';
+  }, [reduce]);
+  return ref;
 }
 
 /** Rounds a converted price so it doesn't pretend to be exact: $3.49 -> 3.5, 224,280 -> 220,000. */

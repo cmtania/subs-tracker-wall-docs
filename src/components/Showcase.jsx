@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { ArrowLeft, ArrowRight, DeviceMobile, DeviceTablet } from '@phosphor-icons/react';
 
+import { useStillWhenReduced } from '../hooks.js';
 import { img, IPAD_TABS, MARQUEE, NUMBERS, SLIDES, SPRING } from '../config.js';
 import { CountUp, Reveal, SectionHead } from './common.jsx';
 import { IPad, IPhone } from './Devices.jsx';
@@ -45,6 +46,8 @@ export function IpadShowcase() {
   const { scrollYProgress } = useScroll({ target: section, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : 80, reduce ? 0 : -80]);
   const phoneY = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : 160, reduce ? 0 : -120]);
+  const stillPad = useStillWhenReduced();
+  const stillPhone = useStillWhenReduced();
 
   return (
     <section className="section ipad-showcase" id="ipad" ref={section}>
@@ -65,14 +68,14 @@ export function IpadShowcase() {
           ))}
         </div>
         <div className="ipad-stage">
-          <motion.div style={{ y }}>
+          <motion.div ref={stillPad} style={{ y }}>
             <IPad
               className="showcase-ipad"
               active={tab}
               screens={IPAD_TABS.map(([label, name]) => [name, `Subwall on iPad: ${label}`])}
             />
           </motion.div>
-          <motion.div className="showcase-phone-wrap" style={{ y: phoneY }}>
+          <motion.div ref={stillPhone} className="showcase-phone-wrap" style={{ y: phoneY }}>
             <IPhone className="showcase-phone" screens={[['phone-room-dark', 'Subwall on iPhone, lights off']]} />
           </motion.div>
         </div>

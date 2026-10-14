@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { LockSimple } from '@phosphor-icons/react';
 
+import { useStillWhenReduced } from '../hooks.js';
 import { img, SPRING, WIDGETS } from '../config.js';
 import { Reveal, SectionHead } from './common.jsx';
 
@@ -16,6 +17,8 @@ export function Widgets() {
   const { scrollYProgress } = useScroll({ target: section, offset: ['start end', 'end start'] });
   const drift = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : 50, reduce ? 0 : -50]);
   const driftBack = useTransform(scrollYProgress, [0, 1], [reduce ? 0 : -30, reduce ? 0 : 30]);
+  const stillA = useStillWhenReduced();
+  const stillB = useStillWhenReduced();
   const current = WIDGETS[pick];
 
   return (
@@ -57,8 +60,8 @@ export function Widgets() {
 
         <div className="widgets-stage">
           {/* Two small widgets drifting behind, at different speeds. */}
-          <motion.img className="widget-float float-a" src={img('widget-due')} alt="" style={{ y: driftBack }} loading="lazy" />
-          <motion.img className="widget-float float-b" src={img('widget-month')} alt="" style={{ y: drift }} loading="lazy" />
+          <motion.img ref={stillA} className="widget-float float-a" src={img('widget-due')} alt="" style={{ y: driftBack }} loading="lazy" />
+          <motion.img ref={stillB} className="widget-float float-b" src={img('widget-month')} alt="" style={{ y: drift }} loading="lazy" />
           <div className={`widget-main shape-${current.shape}`}>
             <AnimatePresence mode="popLayout" initial={false}>
               {current.lock ? (

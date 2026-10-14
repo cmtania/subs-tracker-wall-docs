@@ -55,9 +55,15 @@ export function CountUp({ value, suffix = '' }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const reduce = useReducedMotion();
-  const [shown, setShown] = useState(reduce ? value : 0);
+  // Starts at 0 like the prerendered HTML (so hydration matches); with Reduce Motion it jumps
+  // straight to the value instead of counting.
+  const [shown, setShown] = useState(0);
   useEffect(() => {
-    if (!inView || reduce) return undefined;
+    if (reduce) {
+      setShown(value);
+      return undefined;
+    }
+    if (!inView) return undefined;
     const controls = animate(0, value, { duration: 1.4, ease: [0.16, 1, 0.3, 1], onUpdate: (v) => setShown(Math.round(v)) });
     return () => controls.stop();
   }, [inView, reduce, value]);

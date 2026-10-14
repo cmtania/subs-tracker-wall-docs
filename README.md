@@ -49,6 +49,14 @@ node tools/make-images.mjs
 
 The list of images (and their crops) is at the top of `tools/make-images.mjs`. It needs Google Chrome, and it also writes `og.jpg`, the link preview. After new captures or slides, run it again and commit `public/assets/web/`.
 
+## SEO
+
+- `npm run build` also prerenders the page (`src/entry-server.jsx` + `tools/prerender.mjs`): `dist/index.html` carries the full page as HTML, so Google, Bing, AI crawlers and link previews read the content without running JavaScript. React then hydrates it (`src/main.jsx`). Keep render code free of `window`/`navigator` (use effects), or hydration breaks.
+- The prerender also adds JSON-LD structured data: MobileApplication (name, category, free, App Store link), WebSite, and FAQPage (from `FAQS` in `src/config.js`).
+- Head tags: title and description written for searches like "subscription tracker", canonical URL, Open Graph and Twitter cards, and the Smart App Banner (`apple-itunes-app`, app id 6817052525) on every page.
+- `public/robots.txt` and `public/sitemap.xml` (update `lastmod` when pages change).
+- After the domain is live: add it to Google Search Console (and Bing Webmaster Tools), verify with a DNS TXT record, and submit `https://subwall.guruchanworks.com/sitemap.xml`.
+
 ## Deploy (one-time setup)
 
 1. Push this folder to `github.com/cmtania/subs-tracker-wall-docs` on the `main` branch.

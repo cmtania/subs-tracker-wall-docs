@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform } from 'motion/react';
 import { ArrowDown } from '@phosphor-icons/react';
 
+import { useStillWhenReduced } from '../hooks.js';
 import { APP_STORE_URL, SPRING } from '../config.js';
 import { scrollToId } from '../smooth-scroll.js';
 import { AppStoreButton } from './common.jsx';
@@ -26,6 +27,7 @@ export function Hero() {
   const tilt = useTransform(scrollYProgress, [0, 0.45], [reduce ? 0 : 20, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.45], [reduce ? 1 : 0.9, 1]);
   const lift = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
+  const still = useStillWhenReduced();
 
   // Pointer: tiles drift a little with the mouse, deeper ones more.
   const px = useMotionValue(0);
@@ -93,7 +95,7 @@ export function Hero() {
       </div>
 
       <div className="hero-stage-wrap">
-        <motion.div className="hero-stage" style={{ rotateX: tilt, scale, y: lift }}>
+        <motion.div ref={still} className="hero-stage" style={{ rotateX: tilt, scale, y: lift }}>
           <IPad
             eager
             className="hero-ipad"

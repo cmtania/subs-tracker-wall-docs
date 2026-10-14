@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://subwall.guruchanworks.com/sitemap.xml
